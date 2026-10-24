@@ -845,7 +845,7 @@ export default function App() {
             <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-b from-[#E2C785]/35 via-white/[0.1] to-white/[0.04] p-[1px] shadow-lg shrink-0">
               <div className="w-full h-full bg-[#090B12] rounded-[11px] overflow-hidden flex items-center justify-center p-1 group-hover:bg-[#0D101B] transition-colors">
                 <img
-                  src="/logo.png"
+                  src={`${import.meta.env.BASE_URL}logo.png`}
                   alt="RepKast Logo"
                   className="w-full h-full object-contain"
                   onError={(e) => {
@@ -1077,8 +1077,7 @@ export default function App() {
 
                 {/* 3 CANDIDATE EDITORIAL CARDS — Strictly 3 equal side-by-side columns on Mobile, Tablet & Desktop */}
                 <div className="grid grid-cols-3 gap-2.5 sm:gap-6 lg:gap-8 items-stretch">
-                  {candidates.slice(0, 3).map((candidate, index) => {
-                    const ballotNum = candidate.ballotNumber || `0${index + 1}`;
+                  {candidates.slice(0, 3).map((candidate) => {
                     return (
                       <div
                         key={candidate.id}
@@ -1096,12 +1095,6 @@ export default function App() {
                             className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500 max-w-full"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0C14] via-[#0A0C14]/30 to-transparent" />
-
-                          <div className="absolute top-2 left-2 right-2 sm:top-4 sm:left-4 sm:right-4 flex items-center justify-between">
-                            <span className="px-1.5 py-0.5 sm:px-3 sm:py-1 rounded-full backdrop-blur-md bg-black/60 border border-white/[0.14] text-[9px] sm:text-[11px] font-mono uppercase tracking-wider sm:tracking-[0.16em] text-slate-200 font-medium">
-                              #{ballotNum}
-                            </span>
-                          </div>
 
                           <div className="absolute bottom-1.5 left-2 right-2 sm:bottom-3 sm:left-5 sm:right-5">
                             <h3 className="text-xs sm:text-xl lg:text-2xl font-bold text-white tracking-tight truncate">
